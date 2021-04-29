@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
+const password = process.env.MONGO_PASS;
 mongoose.connect(
-  "mongodb://127.0.0.1:27017/oneshot?gssapiServiceName=mongodb",
+  `mongodb+srv://minraws:${password}@oneshotcluster.jzpwd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

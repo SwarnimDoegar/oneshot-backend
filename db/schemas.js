@@ -19,7 +19,7 @@ const collegeSchema = new Schema({
   city: { type: String, required: true, set: capitalize },
   state: { type: String, required: true, set: capitalize },
   country: { type: String, required: true, set: capitalize },
-  num_students: { type: Number, default: 0 },
+  num_students: { type: Number, default: 100 },
   courses: { type: [String], required: true },
 });
 

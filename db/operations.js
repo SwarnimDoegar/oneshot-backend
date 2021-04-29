@@ -12,20 +12,8 @@ async function makeStudent(name, batch, college_id, skills) {
     college_id: college_id,
     skills: skills,
   });
-  ns.save((err) => {
+  await ns.save((err) => {
     if (err) throw err;
-    College.findByIdAndUpdate(
-      college_id,
-      {
-        $inc: { num_students: 1 },
-      },
-      {
-        new: true,
-      },
-      function (err, res) {
-        if (err) throw err;
-      }
-    );
   });
 }
 
@@ -49,7 +37,7 @@ async function makeCollege(name, founded, city, state, country, courses) {
     country: country.toString(),
     courses: courses.map((course) => course.toString()),
   });
-  nc.save();
+  await nc.save();
 }
 
 async function findSimilarCollegesTo(college) {

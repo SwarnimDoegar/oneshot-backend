@@ -30,7 +30,7 @@ async function populate_students() {
   } catch (err) {
     console.error(err);
   }
-  college_ids.forEach((college) => {
+  college_ids.forEach(async (college) => {
     for (let i = 1; i <= 100; i++) {
       const stu_name = `Student ${i}`;
       const stu_batch = getRandomInt(2015, 2021).toString();

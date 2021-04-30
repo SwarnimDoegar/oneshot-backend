@@ -44,7 +44,6 @@ async function findSimilarCollegesTo(college) {
   if (!college) {
     throw "Some required data is missing";
   }
-  console.log(college);
   const response = await College.aggregate([
     {
       $project: {

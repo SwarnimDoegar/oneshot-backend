@@ -14,6 +14,7 @@ app.get("/api/colleges_by_state", async (req, res) => {
     const collegeGroups = await db.groupCollegesByLocation();
     res.send(collegeGroups);
   } catch (err) {
+   console.log(err);
     return res.sendStatus(500);
   }
 });
@@ -23,6 +24,7 @@ app.get("/api/colleges_by_courses", async (req, res) => {
     const collegeGroups = await db.groupCollegesByCourses();
     res.send(collegeGroups);
   } catch (err) {
+	  console.log(err);
     return res.sendStatus(500);
   }
 });
@@ -51,6 +53,7 @@ app.post("/api/student_details", async (req, res) => {
     const studentDetails = await db.getStudentDetails(student_id);
     res.send(studentDetails);
   } catch (err) {
+	  console.log(err);
     return res.sendStatus(500);
   }
 });

@@ -159,24 +159,15 @@ async function findSimilarCollegesTo(college) {
       },
     },
     {
-      $group: {
-        _id: {
-          countryMatch: "$countryMatch",
-          stateMatch: "$stateMatch",
-          cityMatch: "$cityMatch",
-        },
-        colleges: {
-          $push: {
-            _id: "$_id",
-            num_students: "$num_students",
-            name: "$name",
-            founded: "$founded",
-            city: "$city",
-            state: "$state",
-            country: "$country",
-            courses: "$courses",
-          },
-        },
+      $project: {
+        _id: 1,
+        num_students: 1,
+        name: 1,
+        founded: 1,
+        city: 1,
+        state: 1,
+        country: 1,
+        courses: 1,
       },
     },
     {

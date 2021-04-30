@@ -40,6 +40,7 @@ app.post("/api/college_details", async (req, res) => {
     };
     res.send(resObject);
   } catch (err) {
+    console.log(err);
     return res.sendStatus(500);
   }
 });

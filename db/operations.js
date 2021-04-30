@@ -210,14 +210,26 @@ async function groupCollegesByLocation() {
 async function groupCollegesByCourses() {
   const response = await College.aggregate([
     {
+      $project: {
+        num_students: 1,
+        courses: 1,
+        name: 1,
+        queryCourses: "$courses",
+        founded: 1,
+        city: 1,
+        state: 1,
+        country: 1,
+      },
+    },
+    {
       $unwind: {
-        path: "$courses",
+        path: "$queryCourses",
       },
     },
     {
       $group: {
         _id: {
-          courses: "$courses",
+          courses: "$queryCourses",
         },
         colleges: {
           $push: {

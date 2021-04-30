@@ -31,8 +31,8 @@ app.post("/api/college_details", async (req, res) => {
   const { college } = req.body;
   try {
     const similarColleges = await db.findSimilarCollegesTo(college);
-    const collegeDetails = await db.findCollegeById(college._id.$oid);
-    const collegeStudents = await db.getStudentsInCollege(college._id.$oid);
+    const collegeDetails = await db.findCollegeById(college._id);
+    const collegeStudents = await db.getStudentsInCollege(college._id.);
     const resObject = {
       details: collegeDetails,
       similar: similarColleges,

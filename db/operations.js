@@ -228,6 +228,7 @@ async function groupCollegesByCourses() {
             city: "$city",
             state: "$state",
             country: "$country",
+            courses: "$courses",
           },
         },
       },
